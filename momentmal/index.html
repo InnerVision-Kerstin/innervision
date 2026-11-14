@@ -97,10 +97,13 @@ footer a{color:var(--blau)}
   <div class="ergebnis" id="ergebnis" hidden></div>
 
   <div class="hdbox">
-    <p class="eyebrow" style="margin-bottom:10px">Und warum gerade du?</p>
-    <p>Mir hat Human Design geholfen zu verstehen, warum ich immer wieder in dieselben Muster gefallen bin. Warum ich mehr übernommen hab, als gut für mich war, und warum Pausen für mich keine Faulheit sind, sondern lebenswichtig.</p>
-    <p>Wenn du wissen willst, was bei dir dahintersteckt, schreib mir DESIGN. Dann schauen wir uns das gemeinsam an.</p>
-    <a class="btn" href="https://wa.me/436764753114?text=Hallo%20Kerstin%2C%20ich%20hab%20Moment%20mal%20benutzt.%20DESIGN" target="_blank" rel="noopener">Schreib mir DESIGN</a>
+    <p class="eyebrow" style="margin-bottom:10px">Warum fällt dir Nein sagen so schwer?</p>
+    <p>Oft steckt eine Angst dahinter, die du noch gar nicht kennst. Die Angst, nicht mehr gemocht zu werden. Die Angst, nicht genug zu sein. Die Angst, dass dann alles zusammenbricht.</p>
+    <p>Mir hat Human Design geholfen, meine Ängste beim Namen zu nennen. Ich weiß heute, welche zu mir gehören und welche ich von anderen übernommen hab. Und genau das hat mir geholfen, endlich Nein zu sagen.</p>
+    <p>Mit deinem Geburtsdatum, deiner Geburtszeit und deinem Geburtsort siehst du im Angsttor Rechner, welche Ängste bei dir angelegt sind. Gratis.</p>
+    <p style="display:flex;gap:10px;flex-wrap:wrap;margin-top:12px"><a class="btn" href="https://innervision-kerstin.github.io/Angsttorrechner/" target="_blank" rel="noopener">Meine Angsttore anschauen</a>
+    <a class="btn" style="background:#6B5D52" href="https://wa.me/436764753114?text=Hallo%20Kerstin%2C%20ich%20hab%20Moment%20mal%20benutzt.%20DESIGN" target="_blank" rel="noopener">Schreib mir DESIGN</a></p>
+    <p class="klein" style="margin-top:10px">Und wenn du tiefer schauen willst, schreib mir DESIGN. Dann schauen wir uns gemeinsam an, was in deinem Design steckt.</p>
   </div>
 
   <div class="links">
@@ -215,6 +218,7 @@ function zeige(s){
   h+='<div class="karte">'+tun+'</div>';
   var ss=SS[s.id]||(s.s?[s.s]:[]);
   if(ss.length) h+='<div class="karte"><h3>Sätze, die dir helfen</h3><p class="klein">Zum Sagen, Schreiben oder einfach für dich.</p>'+ss.map(function(x,i){return '<div class="satz"><span>'+esc(x)+'</span><button data-t="'+esc(x)+'">Kopieren</button></div>'}).join('')+'</div>';
+  h+='<div class="karte sofort"><h3>Warum fällt mir das so schwer?</h3><p>Oft steckt eine Angst dahinter. Welche bei dir angelegt ist, siehst du mit deinen Geburtsdaten im <a href="https://innervision-kerstin.github.io/Angsttorrechner/" target="_blank" rel="noopener" style="color:#4F6F86;font-weight:700">Angsttor Rechner</a>.</p></div>';
   if(!frei) h+='<div class="karte" style="text-align:center"><p>Das war eine von zehn Situationen. Mit der Vollversion bekommst du alle zehn und den 21 Tage Plan, um aus dem Muster wirklich rauszukommen.</p><a class="kauf" style="margin:12px 0 0" href="'+SHOP+'" target="_blank" rel="noopener">Moment mal holen, 9 €</a></div>';
   erg.innerHTML=h; erg.hidden=false;
   erg.querySelectorAll(".satz button").forEach(function(b){b.onclick=function(){var t=b.getAttribute("data-t");try{navigator.clipboard.writeText(t).then(function(){b.textContent="Kopiert"},function(){b.textContent="Markieren"})}catch(e){b.textContent="Markieren"}}});
