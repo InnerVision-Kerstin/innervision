@@ -87,25 +87,25 @@ footer a{color:inherit;text-decoration:none}
 </main>
 
 <script>
-const BEREICHE={k:"Körper",o:"Kopf",a:"Alltag",n:"Nein sagen"};
-const FARBE={k:"#D9A7A1",o:"#7FA0B8",a:"#EFC978",n:"#9FB49B"};
+const BEREICHE={e:"Energie",k:"Körper",g:"Gefühl",o:"Kopf"};
+const FARBE={e:"#EFC978",k:"#D9A7A1",g:"#9FB49B",o:"#7FA0B8"};
 const FRAGEN=[
- ["k","Ich wache in der Früh schon müde auf, obwohl ich eigentlich genug geschlafen hab."],
- ["o","Abends im Bett läuft im Kopf noch die Liste für morgen."],
- ["a","Eine Pause fühlt sich für mich an wie Faulheit."],
- ["n","Ich sag Ja, obwohl in mir alles Nein schreit."],
- ["k","Mein Körper meldet sich öfter, mit Kopfweh, Verspannungen, Magen oder Infekten."],
- ["o","Ich vergess Sachen, die mir früher nie passiert wären."],
- ["a","Dinge, die mir früher Freude gemacht haben, lass ich aus, weil keine Zeit oder Kraft da ist."],
- ["n","Wenn ich doch einmal Nein sag, erklär ich mich lang und breit."],
- ["k","Kaum hab ich frei oder Urlaub, werd ich krank."],
- ["o","Kleinigkeiten bringen mich schneller auf die Palme als früher."],
- ["a","Ich leb von Wochenende zu Wochenende oder von Urlaub zu Urlaub."],
- ["n","Ich übernehm Aufgaben, um die mich eigentlich keiner gebeten hat."],
- ["k","Ohne Kaffee, Zucker oder Schokolade komm ich nicht durch den Tag."],
- ["o","Auch wenn ich frei hab, kann ich nicht richtig abschalten."],
- ["a","Kaum sitz ich, steh ich wieder auf, weil mir noch was einfällt."],
- ["n","Ich hab ein schlechtes Gewissen, wenn ich mir selbst was Gutes tu."]
+ ["e","Ich bin müde, egal wie viel ich schlafe."],
+ ["k","Ich schlafe schlecht ein oder wache in der Nacht auf und grüble."],
+ ["g","Dinge, die mir früher Freude gemacht haben, sind mir egal geworden."],
+ ["o","Ich kann mich schlecht konzentrieren und vergess Sachen."],
+ ["e","Schon in der Früh fühl ich mich, als hätte ich einen ganzen Tag hinter mir."],
+ ["k","Mein Körper meldet sich, mit Kopfweh, Verspannungen, Herzklopfen oder Magen."],
+ ["g","Ich bin schneller gereizt oder den Tränen nah als früher."],
+ ["o","Für Dinge, die mir früher leicht gefallen sind, brauch ich viel länger."],
+ ["e","Nach dem Tag hab ich für nichts mehr Kraft, nicht einmal für Schönes."],
+ ["k","Ich werd öfter krank als früher, oder es dauert ewig, bis ich wieder fit bin."],
+ ["g","Ich fühl mich innerlich leer, wie ausgebrannt."],
+ ["o","Egal wie viel ich mach, ich hab das Gefühl, es reicht nie."],
+ ["e","Auch nach dem Wochenende oder einem Urlaub bin ich nicht wirklich erholt."],
+ ["k","Ohne Kaffee, Zucker oder ein Glas Wein komm ich nicht hoch oder nicht runter."],
+ ["g","Sogar Menschen, die mir wichtig sind, werden mir zu viel."],
+ ["o","Ich funktionier nur noch und frag mich, wofür eigentlich."]
 ];
 const OPT=["Gar nicht","Manchmal","Immer"];
 let i=0, antw=[];
@@ -145,15 +145,15 @@ const STUFEN=[
 ];
 function auswerten(){
   const summe=antw.reduce((a,b)=>a+b,0);
-  const ber={k:0,o:0,a:0,n:0};
+  const ber={e:0,k:0,g:0,o:0};
   FRAGEN.forEach(([b],j)=>ber[b]+=antw[j]);
   const s=STUFEN.find(x=>summe<=x.max);
   const idx=STUFEN.indexOf(s);
   const top=Object.keys(ber).sort((a,b)=>ber[b]-ber[a])[0];
-  const topText={k:"Dein Körper zahlt gerade am meisten drauf. Er sagt dir schon länger, dass es zu viel ist.",
-                 o:"Am meisten Energie frisst gerade dein Kopf. Das Gedankenkarussell läuft auch dann, wenn du eigentlich Pause hättest.",
-                 a:"Im Alltag fehlt dir gerade das Auftanken. Du gibst laufend aus, aber es kommt kaum was rein.",
-                 n:"Dein größter Dauerauftrag ist das Ja sagen. Jedes Ja für andere, das eigentlich ein Nein war, wird von deinem Konto abgebucht."}[top];
+  const topText={e:"Dein Akku ist das Erste, was leer läuft. Du startest schon müde in den Tag und kommst gar nicht mehr zum Aufladen.",
+                 k:"Dein Körper zahlt gerade am meisten drauf. Schlaf, Verspannungen, Infekte, er sagt dir schon länger, dass es zu viel ist.",
+                 g:"Am stärksten merkst du es an deinen Gefühlen. Leere, Gereiztheit, und Dinge, die dir früher wichtig waren, fühlen sich egal an. Das ist ein ernstes Zeichen.",
+                 o:"Dein Kopf läuft schon auf Reserve. Konzentration, Gedächtnis und das Gefühl, es reicht nie, kosten dich gerade am meisten."}[top];
   let h='<div class="stufe">Dein Kontostand</div><div class="saldo">'+s.name+'</div>';
   h+='<p style="text-align:center;color:#6B5D52;margin-bottom:0">'+s.saldo+'</p>';
   h+='<div class="balken">'+STUFEN.map((x,j)=>'<span class="'+(j<=idx?"on":"")+'" style="--c:'+s.farbe+'"></span>').join("")+'</div>';
