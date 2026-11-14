@@ -107,7 +107,7 @@ const FRAGEN=[
  ["a","Kaum sitz ich, steh ich wieder auf, weil mir noch was einfällt."],
  ["n","Ich hab ein schlechtes Gewissen, wenn ich mir selbst was Gutes tu."]
 ];
-const OPT=["Stimmt gar nicht","Stimmt eher nicht","Stimmt eher","Stimmt genau"];
+const OPT=["Gar nicht","Manchmal","Immer"];
 let i=0, antw=[];
 const $=id=>document.getElementById(id);
 function los(){$("start").classList.add("hide");$("quiz").classList.remove("hide");zeige();}
@@ -125,19 +125,19 @@ function zeige(){
 function wahl(w){antw[i]=w;i++; if(i<FRAGEN.length) zeige(); else auswerten();}
 function zurueck(){if(i>0){i--;zeige();}}
 const STUFEN=[
- {max:12,name:"Im Plus",farbe:"#9FB49B",saldo:"Du hast noch Reserven",
+ {max:8,name:"Im Plus",farbe:"#9FB49B",saldo:"Du hast noch Reserven",
   text:["Dein Konto ist gut gefüllt. Du merkst, wenn es dir zu viel wird, und du nimmst dir auch, was du brauchst. Das ist nicht selbstverständlich, darauf darfst du stolz sein.",
         "Pass trotzdem auf die kleinen Abbuchungen auf. Die merkt man erst, wenn sie sich summieren."],
   tipp:"Schreib dir heute drei Dinge auf, die dir Energie geben. Das ist dein Sparbuch für stressige Zeiten."},
- {max:24,name:"Im Dispo",farbe:"#EFC978",saldo:"Du borgst dir schon Energie",
+ {max:16,name:"Im Dispo",farbe:"#EFC978",saldo:"Du borgst dir schon Energie",
   text:["Von außen läuft alles. Innen borgst du dir aber schon Energie von morgen, damit heute alles erledigt ist. Am Wochenende holst du auf, und am Montag geht es wieder von vorne los.",
         "Genau da bin ich jahrelang gestanden. Das Gemeine am Dispo ist, er fühlt sich ganz normal an."],
   tipp:"Such dir heute eine einzige Sache aus, die du nicht machst. Nicht verschieben, einfach weglassen. Und schau, was passiert. Meistens gar nichts."},
- {max:36,name:"Überzogen",farbe:"#D9A7A1",saldo:"Dein Körper schickt Mahnungen",
+ {max:24,name:"Überzogen",farbe:"#D9A7A1",saldo:"Dein Körper schickt Mahnungen",
   text:["Dein Konto ist im Minus, und dein Körper zeigt es dir schon. Müdigkeit, die nicht weggeht, ein Kopf, der nicht still wird, eine kurze Zündschnur. Das sind keine Schwächen, das sind Mahnungen.",
         "Ich hab meine Mahnungen damals lange ignoriert. Bis mein Körper die Notbremse gezogen hat. Du musst nicht so lange warten wie ich."],
   tipp:"Nimm dir diese Woche jeden Tag zehn Minuten nur für dich. Kein Handy, keine Wäsche nebenbei. Trag sie in den Kalender ein wie einen Arzttermin."},
- {max:48,name:"Mahnstufe",farbe:"#B98A84",saldo:"Zeit, auf die Bremse zu steigen",
+ {max:32,name:"Mahnstufe",farbe:"#B98A84",saldo:"Zeit, auf die Bremse zu steigen",
   text:["Ganz ehrlich, dein Energiekonto ist tief im Minus. Du funktionierst vermutlich nur noch, und wahrscheinlich weißt du das insgeheim schon länger.",
         "Das heißt nicht, dass mit dir was nicht stimmt. Es heißt, dass du sehr lange sehr viel getragen hast. Und dass jetzt du selbst an der Reihe bist."],
   tipp:"Sag heute einer Person, der du vertraust, wie es dir wirklich geht. Allein raus ist schwer, das weiß ich aus eigener Erfahrung.",
@@ -159,7 +159,7 @@ function auswerten(){
   h+='<div class="balken">'+STUFEN.map((x,j)=>'<span class="'+(j<=idx?"on":"")+'" style="--c:'+s.farbe+'"></span>').join("")+'</div>';
   h+=s.text.map(t=>"<p>"+t+"</p>").join("");
   h+='<h3>Dein Kontoauszug</h3><div class="auszug">';
-  Object.keys(BEREICHE).forEach(b=>{const p=Math.round(ber[b]/12*100);
+  Object.keys(BEREICHE).forEach(b=>{const p=Math.round(ber[b]/8*100);
     h+='<div class="zeile"><b>'+BEREICHE[b]+'</b><span class="bar"><i style="width:'+p+'%;background:'+FARBE[b]+'"></i></span><span class="wert">'+p+' %</span></div>';});
   h+='</div><p style="margin-top:14px">'+topText+'</p>';
   h+='<h3>Dein erster Schritt</h3><div class="tipp">'+s.tipp+'</div>';
