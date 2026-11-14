@@ -212,6 +212,9 @@
   .brandtop .lg{display:inline-block;background:#FCF8F2;border-radius:20px;padding:20px 28px 16px;box-shadow:0 8px 26px rgba(40,50,38,.18)}
   .brandtop .lg img{width:220px;max-width:60vw;display:block}
   .ringe{display:none !important}
+  .elliste{margin:6px 0 4px;padding-left:18px;color:var(--ink-2)}
+  .elliste li{margin:6px 0}
+  .karte.koerper{border-left:4px solid var(--el-f, var(--sage))}
   .hinweis{max-width:none !important}
   .prose p,.next p,.ef-lede,.karte p{max-width:none !important}
   .header-text{max-width:none !important}
@@ -667,6 +670,15 @@
       <h2>Holz, Feuer, Erde, Metall, Wasser?</h2>
       <p>Die fünf Elemente kommen aus der Traditionellen Chinesischen Medizin, die kennst du vielleicht von der Organuhr. Dort gehört zu jedem Element ein Organ und ein Gefühl. Holz gehört zu Leber und Gallenblase und zu Ärger und Wut. Feuer zu Herz und Herzbeutel, zu Freude und, wenn es zu viel wird, zu Unruhe. Erde zu Magen und Milz und zum Grübeln. Metall zu Lunge und Dickdarm und zur Trauer. Wasser zu den Nieren und zur Angst.</p>
       <p>Ich nutze dieses Bild, weil es mir selbst so oft geholfen hat zu verstehen, warum mein Körper bei bestimmten Gefühlen genau so reagiert. Es ist Erfahrungswissen und kein medizinischer Befund.</p>
+    
+      <ul class="elliste">
+        <li><b>Holz</b>, Leber und Gallenblase. Meldet sich gern mit Verspannungen in Nacken und Schultern, Kopfweh an den Schläfen oder Krämpfen. Das Gefühl dazu ist Ärger.</li>
+        <li><b>Feuer</b>, Herz und Dünndarm. Meldet sich gern mit Herzklopfen, innerer Unruhe und schlechtem Schlaf. Das Gefühl dazu ist Unruhe, manchmal auch Einsamkeit.</li>
+        <li><b>Erde</b>, Magen und Milz. Meldet sich gern mit Magendrücken, Blähbauch und Heißhunger auf Süßes. Das Gefühl dazu ist Grübeln.</li>
+        <li><b>Metall</b>, Lunge und Dickdarm. Meldet sich gern mit Husten, Bronchitis, Haut oder einer Verdauung, die nicht loslässt. Das Gefühl dazu ist Trauer.</li>
+        <li><b>Wasser</b>, Nieren und Blase. Meldet sich gern mit Kreuzweh, Nieren, Blase, kalten Füßen und tiefer Erschöpfung. Das Gefühl dazu ist Angst.</li>
+      </ul>
+      <p>Wenn ein Körperteil immer wieder spinnt, zum Beispiel die Nieren oder der Rücken, schau nicht nur auf das Symptom. Frag dich auch, welches Gefühl dahinter wohnen könnte. Und lass es bitte trotzdem ärztlich abklären.</p>
     </section>
     <section>
       <h2>Zu den Ölen</h2>
@@ -738,6 +750,13 @@
 (function () {
 
   var ELNAME = { holz: "Holz", feuer: "Feuer", erde: "Erde", metall: "Metall", wasser: "Wasser" };
+  var ELKOERPER = {
+    holz: { organe: "Leber und Gallenblase", signale: "Verspannungen in Nacken und Schultern, Kopfweh an den Schläfen, müde Augen, Krämpfe und harte Muskeln", gefuehl: "Ärger, Wut und Frust", frage: "Wo ärgere ich mich und sag es nicht? Wo komm ich nicht weiter?" },
+    feuer: { organe: "Herz und Dünndarm, dazu der Herzbeutel", signale: "Herzklopfen, innere Unruhe, Hitze, schlechter Schlaf und ein Kopf, der nicht still wird", gefuehl: "Unruhe, zu viel Aufregung, und auch das Gefühl, allein zu sein", frage: "Wo fehlt mir echte Verbindung? Was bringt mich so auf Touren?" },
+    erde: { organe: "Magen und Milz", signale: "Magendrücken, Blähbauch, Heißhunger auf Süßes, schwere Beine und Müdigkeit nach dem Essen", gefuehl: "Grübeln, Sorgen und Gedankenkreisen", frage: "Um wen kümmere ich mich gerade, nur nicht um mich?" },
+    metall: { organe: "Lunge und Dickdarm", signale: "Husten, Bronchitis, ein enger Brustkorb, Hautprobleme und eine Verdauung, die nicht loslässt", gefuehl: "Trauer und Abschied", frage: "Was will gehen, und ich halte es noch fest?" },
+    wasser: { organe: "Nieren und Blase", signale: "Kreuzweh im unteren Rücken, Nieren und Blase, kalte Füße, Knie, Ohren und eine tiefe Erschöpfung", gefuehl: "Angst und fehlendes Vertrauen", frage: "Wovor hab ich gerade Angst? Wo lebe ich von meinen letzten Reserven?" }
+  };
 
   var ZUSTAENDE = [
     {
@@ -941,6 +960,11 @@
         '</div>' +
       '</div>' +
       '<div class="karte"><h3>Was gerade wirklich los ist</h3><p>' + esc(z.los) + '</p></div>' +
+      '<div class="karte koerper"><h3>Was dein Körper damit zu tun hat</h3>' +
+        '<p>Das Element ' + esc(ELNAME[z.el]) + ' gehört zu ' + esc(ELKOERPER[z.el].organe) + '. Typische Signale sind ' + esc(ELKOERPER[z.el].signale) + '. Das Gefühl dazu ist ' + esc(ELKOERPER[z.el].gefuehl) + '.</p>' +
+        '<p>Wenn sich genau das bei dir immer wieder meldet, ist das oft kein Zufall. Dann darfst du hinschauen. ' + esc(ELKOERPER[z.el].frage) + '</p>' +
+        '<p class="oel-fuss">Lass Beschwerden, die immer wiederkommen, bitte auch ärztlich abklären.</p>' +
+      '</div>' +
       '<div class="karte uebung">' +
         '<h3>Deine ' + z.minuten + ' Minuten</h3>' +
         '<p>' + esc(z.uebung) + '</p>' +
