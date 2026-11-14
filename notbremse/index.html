@@ -656,11 +656,8 @@
 
   <div>
     <h2 class="frage-oben">Was ist gerade los?</h2>
-    <p class="gratis-hinweis" id="gratisHinweis">Zwei Zustände und eine Situation kannst du gratis ausprobieren. Alles bekommst du mit der Vollversion.</p>
+    <p class="gratis-hinweis" id="gratisHinweis">Zwei Zustände kannst du gratis ausprobieren. Alle zehn bekommst du mit der Vollversion.</p>
     <div class="kacheln" id="kacheln"></div>
-    <h2 class="frage-oben" style="margin-top:28px">Oder was ist gerade passiert?</h2>
-    <p class="gratis-hinweis">Wenn dich eine Situation aus der Bahn wirft, jemand was von dir will oder du schon wieder zu viel übernommen hast.</p>
-    <div class="kacheln" id="situKacheln"></div>
   </div>
 
   <div class="ergebnis" id="ergebnis" hidden></div>
@@ -705,13 +702,6 @@
     </div>
     <ol class="ef-liste" id="efListe"></ol>
     <p class="ef-schluss">Frag dich bei allem, was auf dich einstürzt, was es vom Standpunkt der Ewigkeit aus wert wäre.</p>
-  </div>
-
-  <div class="hdbox">
-    <p class="eyebrow">Und warum gerade du?</p>
-    <p>Mir hat Human Design geholfen zu verstehen, warum ich immer wieder in dieselben Muster gefallen bin. Warum ich mehr übernommen hab, als gut für mich war, und warum Pausen für mich keine Faulheit sind, sondern lebenswichtig.</p>
-    <p>Wenn du wissen willst, was bei dir dahintersteckt, schreib mir DESIGN. Dann schauen wir uns das gemeinsam an.</p>
-    <a class="hdknopf" href="https://wa.me/436764753114?text=Hallo%20Kerstin%2C%20ich%20hab%20die%20Notbremse%20benutzt.%20DESIGN" target="_blank" rel="noopener">Schreib mir DESIGN</a>
   </div>
 
   <div class="next">
@@ -903,54 +893,6 @@
   var frei = false;
   try { frei = localStorage.getItem("notbremse_frei") === "1"; } catch (e) {}
   function offen(i) { return frei || GRATIS.indexOf(i) > -1; }
-  var SITU=[
- {id:"sehen",n:"Ich seh, was erledigt gehört, und übernehm es",
-  f:["Hat mich jemand gefragt?","Ist das meine Aufgabe oder die von jemand anderem?","Muss ich das jetzt machen, oder halte ich es nur nicht aus, dass es nicht so ist, wie ich es gern hätte?","Mach ich das für den anderen, oder damit ich mich wohler fühle?","Wie geht es mir danach, wenn ich wieder eingesprungen bin und ausgelaugt bin?"],
-  a:"Ich darf es sehen und trotzdem gehen",
-  t:"Dreh dich um und geh. Wirklich. Wenn es dich weiter juckt, frag die Person, ob sie Hilfe will, und warte auf die Antwort. Und wenn du es doch machst, dann sag dir ehrlich „Ich mach das für mich, weil ich es so haben will“. Dann ohne Groll und ohne Erwartung, dass dir jemand dankt.",
-  s:"Brauchst du Hilfe dabei, oder passt das so für dich?",g:[37,50,18,32,43]},
- {id:"voll",n:"Gerade erst abgearbeitet, und mein Arbeitsplatz ist schon wieder voll",
-  f:["Muss das wirklich alles heute sein?","Was davon ist meins, und was hat mir jemand nur draufgelegt?","Was hab ich in den letzten Tagen schon alles fertig gemacht?"],
-  a:"Ein voller Tisch heißt nicht, dass ich versagt hab",ae:"Ein voller Tisch heißt, dass dein Geschäft läuft. Er sagt nichts darüber aus, ob du gut genug bist.",druck:true,
-  t:"Mach dir zuerst ein, zwei ruhige Stunden nur für deine Aufträge. Telefon auf lautlos oder in ein anderes Zimmer, Mails zu. Erst danach rufst du zurück und schaust dir die neuen Sachen an. Alles, was nicht heute sein muss, schreibst du auf deine Liste Kann warten bis und setzt einen fixen Tag dazu. Dann musst du es dir nicht mehr merken.",g:[32,50,57,48]},
- {id:"dazwischen",n:"Ich nehm mir was vor, und ständig kommt was dazwischen",
-  st:["Leg in der Früh fest, was heute fertig werden soll. Eine Sache reicht.","Nimm dir dafür ein, zwei ruhige Stunden. Telefon lautlos oder in ein anderes Zimmer, Mails zu. Sag deiner Familie oder deinem Team vorher Bescheid.","Wenn trotzdem jemand was will, sag ihm, wann du dich meldest. Den Satz dafür findest du gleich unten bei Das kannst du sagen.","Nach der ruhigen Zeit rufst du zurück und schaust, was reingekommen ist. Bei allem fragst du dich, muss das heute sein?","Was heute sein muss, machst du. Was nicht, kommt auf deine Liste Kann warten bis, mit einem fixen Tag.","Am Abend schaust du, was du alles gemacht hast. Auch das, was dazwischen kam, war Arbeit."],
-  s:"Ich bin gerade mitten in etwas. Ich melde mich um zehn bei dir.",
-  f:["Ist das wirklich dringend, oder fühlt es sich nur so an?","Wer sagt, dass das jetzt sein muss? Ich, oder sagt mir das jemand anderer?","Wenn ich das jetzt mache, was darf dafür auf morgen verschoben werden?"],
-  a:"Dazwischen ist auch Arbeit",ae:"Auch was dazwischen kommt, ist Arbeit. Du warst nicht faul, du hast gearbeitet, nur anders als geplant. Und du kannst immer nur das machen, was geht, und nicht mehr.",druck:true,
-  t:"Plan dir jeden Tag ein, zwei ruhige Stunden, in denen du nicht ans Telefon gehst und keine Mails liest. In der Zeit arbeitest du nur an deinen Aufträgen. Danach rufst du zurück. Was dann dazwischen kommt, machst du oder schreibst es mit einem Tag auf deine Liste. Auch das zählt als geschafft.",g:[43,37,50,30,57]},
- {id:"schleudern",n:"Ich komm gerade ins Schleudern",
-  f:["Was ist jetzt wirklich dringend, heute noch?","Wessen Druck ist das, meiner oder der von anderen?","Was darf bis morgen warten?"],
-  a:"Eins nach dem anderen",ae:"Du hast nur zwei Hände und einen Kopf. Mehr als eine Sache gleichzeitig geht nicht, und das muss es auch nicht.",druck:true,
-  t:"Atme dreimal tief aus. Dann wähl genau eine Sache und mach nur die.",g:[32,57,30,43,4]},
- {id:"muede",n:"Ich bin müde und leer",
-  f:["Wann hab ich zuletzt wirklich Pause gemacht?","Was brauch ich jetzt, nicht die anderen?","Was darf heute einfach liegen bleiben?"],
-  a:"Pause ist auch Arbeit an mir",
-  t:"Leg dich zehn Minuten hin oder geh kurz raus. Ohne Handy. Danach entscheidest du weiter.",g:[55,11,36,48,37]},
- {id:"anfrage",n:"Jemand will was von mir",
-  f:["Ist das meins oder deins?","Bin ich eingeladen, oder spring ich ein?","Will ich das, oder will ich nur, dass der andere zufrieden ist?","Was kostet mich das an Zeit, Kraft und Ruhe?"],
-  a:"Ich darf mir Zeit nehmen",
-  t:"Sag heute noch nicht ja. Schick diesen Satz und entscheide später.",
-  s:"Danke dir, ich schau mir das an und melde mich morgen dazu.",aut:true,g:[6,37,43,50,17,36]},
- {id:"zuviel",n:"Ich hab schon wieder zu viel übernommen",
-  f:["Was davon wollte ich wirklich machen?","Was hab ich nur übernommen, damit kein Streit entsteht?","Was davon war gar nicht meins?","Welche eine Sache kann ich zurückgeben?"],
-  a:"Ich darf meine Meinung ändern",
-  t:"Gib heute eine Zusage zurück. Dieser Satz hilft dir dabei.",
-  s:"Ich hab mich übernommen, das geht sich bei mir leider nicht aus.",aut:true,g:[37,50,43,6,36]},
- {id:"kopf",n:"Mein Kopf hört nicht auf",
-  f:["Ist das meine Frage oder die von jemand anderem?","Muss ich das heute lösen?","Was davon ist gerade wirklich passiert?"],
-  a:"Gedacht ist nicht getan, und das ist okay",
-  t:"Gib deinen Gedanken einen Parkplatz. Schreib jeden Gedanken auf einen Zettel, am Arbeitsplatz oder neben dem Bett, und schreib dazu, wann du dich darum kümmerst, zum Beispiel morgen oder Montag. Dann kann dein Kopf loslassen.",g:[11,43,4,24,47,17,57,30]},
- {id:"fertig",n:"Ich krieg nix fertig",
-  f:["Was hab ich heute alles gemacht?","Welche drei Dinge sind heute wirklich wichtig?","Wessen Tempo ist das, meins oder das der anderen?"],
-  a:"Drei Dinge reichen",ae:"Drei erledigte Sachen sind mehr wert als zehn angefangene.",druck:true,
-  t:"Nimm dir einen Zettel oder eine Liste an deinem Arbeitsplatz. Oben schreibst du drei Dinge, die heute fertig werden. Darunter machst du eine zweite Liste, Kann warten bis. Zu jeder Sache dort schreibst du einen fixen Tag, zum Beispiel kann warten bis Dienstag, aber am Dienstag wird es erledigt. So ist nichts vergessen, es hat nur seinen eigenen Tag.",g:[32,48,18,28,36]},
- {id:"abschalten",n:"Ich kann nicht abschalten",
-  f:["Was ist noch offen, was gehört noch erledigt?","Was passiert wirklich, wenn es bis Montag liegt?","Was brauch ich jetzt?"],
-  a:"Für heute ist es gut",
-  t:"Schreib auf, was noch offen ist, und daneben, wann du es machst. Dann Laptop zu, Handy in ein anderes Zimmer und sag laut „Für heute ist es gut.“",g:[55,11,22,30,57]}
-];
-  var SITU_GRATIS = ["anfrage"];
   var kachelnBox = document.getElementById("kacheln");
   var ergebnis = document.getElementById("ergebnis");
   var uhr = null;
@@ -975,37 +917,8 @@
     kachelnBox.appendChild(b);
   });
 
-  var situBox = document.getElementById("situKacheln");
-  SITU.forEach(function (s, i) {
-    var b = document.createElement("button");
-    b.type = "button";
-    b.className = "kachel";
-    b.style.setProperty("--el-b", "var(--rose-2)");
-    b.textContent = s.n;
-    var frei0 = frei || SITU_GRATIS.indexOf(s.id) > -1;
-    if (!frei0) b.classList.add("zu");
-    b.addEventListener("click", function () { (frei || SITU_GRATIS.indexOf(s.id) > -1) ? zeigeSitu(i) : sperreSitu(i); });
-    situBox.appendChild(b);
-  });
-  var kacheln = Array.prototype.slice.call(kachelnBox.querySelectorAll(".kachel")).concat(Array.prototype.slice.call(situBox.querySelectorAll(".kachel")));
+  var kacheln = Array.prototype.slice.call(kachelnBox.querySelectorAll(".kachel"));
   if (frei) { var gh0 = document.getElementById("gratisHinweis"); if (gh0) gh0.hidden = true; }
-
-  function zeigeSitu(i) {
-    var s = SITU[i];
-    if (uhr) { clearInterval(uhr); uhr = null; }
-    kacheln.forEach(function (k) { k.classList.toggle("aktiv", k.textContent === s.n); });
-    ergebnis.hidden = false;
-    ergebnis.removeAttribute("data-el");
-    var html = '<div class="kopf"><h2>' + esc(s.n) + '</h2></div>';
-    html += '<div class="karte"><h3>Frag dich ehrlich</h3><ul class="fragen">' + s.f.map(function (q) { return '<li>' + esc(q) + '</li>'; }).join('') + '</ul></div>';
-    html += '<div class="karte"><h3>Dein Satz für jetzt</h3><p class="satzbox">' + esc(s.a) + '</p>' + (s.ae ? '<p>' + esc(s.ae) + '</p>' : '') + '</div>';
-    if (s.st) html += '<div class="karte"><h3>Schritt für Schritt</h3><ol class="schritte">' + s.st.map(function (x) { return '<li>' + esc(x) + '</li>'; }).join('') + '</ol></div>';
-    html += '<div class="karte uebung"><h3>Was du jetzt tun kannst</h3><p>' + esc(s.t) + '</p></div>';
-    if (s.s) html += '<div class="karte frage-karte"><h3>Das kannst du sagen</h3><p>' + esc(s.s) + '</p></div>';
-    ergebnis.innerHTML = html;
-    ergebnis.scrollIntoView({ behavior: "smooth", block: "start" });
-  }
-  function sperreSitu(i) { sperre(-1, SITU[i].n); }
 
   function sperre(i, sTitel) {
     if (uhr) { clearInterval(uhr); uhr = null; }
@@ -1015,7 +928,7 @@
     ergebnis.innerHTML =
       '<div class="sperre">' +
         '<h2>' + esc(i < 0 ? sTitel : ZUSTAENDE[i].titel) + '</h2>' +
-        '<p>Das ist in der Vollversion. Dort bekommst du alle zehn Zustände mit Übung, Timer, Element und Öl, zehn Situationen mit Fragen, Sätzen und Tipps für deine Grenzen, und die achtzehn Wege aus dem Stress. Einmal kaufen, für immer am Handy.</p>' +
+        '<p>Das ist in der Vollversion. Dort bekommst du alle zehn Zustände mit Übung, Timer, Element, Körper und Öl, und die achtzehn Wege aus dem Stress. Einmal kaufen, für immer am Handy.</p>' +
         '<a class="kauf" href="' + SHOP + '" target="_blank" rel="noopener">Deine Notbremse holen, 6 €</a>' +
         '<p style="margin-bottom:8px">Du hast schon einen Code?</p>' +
         '<form id="codeForm"><input id="codeFeld" placeholder="Dein Code" autocomplete="off"><button type="submit">Freischalten</button></form>' +
@@ -1029,7 +942,7 @@
         try { localStorage.setItem("notbremse_frei", "1"); } catch (e) {}
         kacheln.forEach(function (k) { k.classList.remove("zu"); });
         var gh = document.getElementById("gratisHinweis"); if (gh) gh.hidden = true;
-        if (i < 0) { var idx = SITU.map(function (x) { return x.n; }).indexOf(sTitel); zeigeSitu(idx); } else { zeigen(i); }
+        zeigen(i);
       } else {
         document.getElementById("codeFehler").textContent = "Der Code stimmt leider nicht. Schau nochmal in deine Kaufbestätigung.";
       }
