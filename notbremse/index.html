@@ -234,6 +234,10 @@
 
   .kachel.zu::after{content:"\1F512";margin-left:8px;font-size:.85em;opacity:.55}
   .fach-titel{grid-column:1/-1;margin:18px 0 2px;font-size:.8rem;letter-spacing:.14em;text-transform:uppercase;color:var(--ink-2);font-weight:700;border-left:3px solid var(--el-b);padding-left:10px}
+  .koffer-bild{margin:6px auto 26px;max-width:520px}
+  .koffer-bild img{display:block;width:100%;height:auto;border-radius:22px;box-shadow:0 14px 34px rgba(110,70,70,.18)}
+  
+  .fach-titel{color:color-mix(in srgb,var(--el-b) 55%,#3b342e)}
   .gratis-hinweis{margin:-6px 0 14px;color:var(--ink-3);font-size:.95rem}
   .sperre{border:1px solid var(--line);border-radius:var(--r);background:var(--surface);padding:24px 22px;text-align:center}
   .sperre h2{font-family:var(--font-display);font-weight:400;font-size:1.6rem;margin:0 0 8px}
@@ -640,6 +644,8 @@
   @media (prefers-reduced-motion: reduce) {
     *, *::before, *::after { animation-duration: 0.001ms !important; transition-duration: 0.001ms !important; }
   }
+  .kacheln .kachel{background:color-mix(in srgb,var(--el-b) 22%,#fffdf9) !important;border-left-width:5px}
+  .kacheln .kachel.aktiv{background:var(--rose) !important}
 </style>
 
 <div class="wrap" lang="de">
@@ -654,6 +660,8 @@
       <p class="lede">Es ist gerade alles zu viel? Dann mach deinen Koffer auf. Darin liegen kleine Werkzeuge, die du sofort anwenden kannst, ein bis zehn Minuten, mitten im Alltag. Nicht zum Testen, sondern zum Machen. Von dir für dich.</p>
     </div>
   </header>
+
+  <figure class="koffer-bild"><img src="koffer.jpg" alt="Mein Selbsthilfekoffer, Erste Hilfe für herausfordernde Tage, von mir für mich" width="900" height="900" loading="eager"></figure>
 
   <div>
     <h2 class="frage-oben">Was brauchst du gerade?</h2>
@@ -742,11 +750,11 @@
 <script>
 (function () {
 
-  var FAECHER = [{"key": "atmen", "name": "Atmen", "el": "metall"}, {"key": "runter", "name": "Runterkommen", "el": "wasser"}, {"key": "gedanken", "name": "Gedanken sortieren", "el": "erde"}, {"key": "fuersorge", "name": "Selbstfürsorge", "el": "feuer"}, {"key": "kraft", "name": "Kraft tanken", "el": "holz"}, {"key": "perspektive", "name": "Perspektive finden", "el": "erde"}];
+  var FAECHER = [{"key": "atmen", "name": "Atmen", "el": "wasser"}, {"key": "runter", "name": "Runterkommen", "el": "holz"}, {"key": "gedanken", "name": "Gedanken sortieren", "el": "erde"}, {"key": "fuersorge", "name": "Selbstfürsorge", "el": "feuer"}, {"key": "kraft", "name": "Kraft tanken", "el": "holz"}, {"key": "perspektive", "name": "Perspektive finden", "el": "erde"}];
   var ZUSTAENDE = [
  {
   "fach": "atmen",
-  "el": "metall",
+  "el": "wasser",
   "titel": "Länger aus als ein",
   "los": "Wenn dein Atem flach und schnell ist, glaubt dein Kopf, es ist Gefahr. Ein langes Ausatmen sagt ihm, dass du sicher bist.",
   "uebung": "Eine Hand aufs Brustbein, die andere auf den Bauch. Atme so, dass sich nur die untere Hand hebt. Vier ein, sechs aus. Zehn Runden. Du musst nichts erreichen, nur unten ankommen.",
@@ -756,7 +764,7 @@
  },
  {
   "fach": "atmen",
-  "el": "metall",
+  "el": "wasser",
   "titel": "Seufzen erlaubt",
   "los": "Seufzen ist kein Jammern. Es ist der schnellste Weg, Druck aus dem Brustkorb zu lassen.",
   "uebung": "Atme tief ein, und beim Ausatmen lass den Ton raus, der kommen will. Ein Seufzer reicht völlig. Zehnmal. Wenn Tränen kommen, lass sie kommen.",
@@ -766,7 +774,7 @@
  },
  {
   "fach": "atmen",
-  "el": "metall",
+  "el": "wasser",
   "titel": "Arme auf, Arme zu",
   "los": "Wenn alles eng wird, macht sich der Brustkorb klein. Diese Bewegung macht ihn wieder weit.",
   "uebung": "Arme weit auf, Brustkorb öffnen, tief einatmen. Beim Ausatmen die Arme vor der Brust kreuzen und dich selbst umarmen. Achtmal auf und zu. Danach eine Minute nur stehen und nachspüren.",
@@ -776,7 +784,7 @@
  },
  {
   "fach": "runter",
-  "el": "wasser",
+  "el": "holz",
   "titel": "Fünf Dinge",
   "los": "Wenn der Kopf Karussell fährt, holen dich deine Sinne zurück ins Jetzt.",
   "uebung": "Schau dich um und benenne fünf Dinge, die du siehst. Dann vier, die du hörst. Drei, die du spürst. Zwei, die du riechst. Und eins, das du schmeckst. Langsam, eins nach dem anderen.",
@@ -786,7 +794,7 @@
  },
  {
   "fach": "runter",
-  "el": "wasser",
+  "el": "holz",
   "titel": "Ausschütteln",
   "los": "Anspannung will raus. Wenn du still sitzen bleibst, bleibt sie drin.",
   "uebung": "Steh auf. Schüttel deine Hände aus, dreißig Sekunden lang. Dann die Arme, dann die Beine, dann den ganzen Körper. Zum Schluss eine Minute ruhig stehen und spüren, wie es nachkribbelt.",
@@ -796,7 +804,7 @@
  },
  {
   "fach": "runter",
-  "el": "wasser",
+  "el": "holz",
   "titel": "Warme Hände",
   "los": "Wärme sagt deinem Körper, dass er sich entspannen darf.",
   "uebung": "Setz dich hin und leg beide Hände auf den unteren Rücken. Reib, bis es warm wird, eine Minute lang. Dann lass die Hände einfach liegen und atme ruhig weiter.",
